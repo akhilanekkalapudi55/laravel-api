@@ -20,7 +20,7 @@ Route::get('/posts', 'App\Http\Controllers\PostController@index');
 Route::post('/posts', 'App\Http\Controllers\PostController@store');
 Route::get('/posts/{id}', 'App\Http\Controllers\PostController@show');
 Route::put('/posts/{id}', 'App\Http\Controllers\PostController@update');
-Route::delete('/posts/{id}', 'App\Http\Controllers\PostController@destroy');
+Route::delete('/posts/{id}', 'App\Http\Controllers\PostController@delete');
 
 
 
