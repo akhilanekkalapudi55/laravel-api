@@ -16,7 +16,9 @@ class PostController extends Controller
     public function index()
     {
         //get all post
-        return Post::all();
+        $posts = Post::get()->toJson(JSON_PRETTY_PRINT);
+        return response($posts, 200);
+        
     }
 
     /**
@@ -28,7 +30,16 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //create
-        return Post::create($request->all());
+        $post = new Post;
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->likes = $request->likes;
+        $post->content = $request->content;
+        $post->save();
+
+        return response()->json([
+            "message" => " record created"
+        ], 201);
     }
 
     /**
